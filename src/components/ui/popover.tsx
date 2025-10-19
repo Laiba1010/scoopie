@@ -57,7 +57,7 @@ const PopoverContent = React.forwardRef<
                 align={align}
                 sideOffset={sideOffset}
                 className={cn(
-                  'z-50  0 mx-auto max-w-[calc(100vw-30px)] 2xl:w-[110rem] focus:outline-none outline-none',
+                  'z-50  0 mx-auto max-w-[calc(100vw-45px)] 2xl:w-[110rem] focus:outline-none outline-none',
                   className,
                 )}
                 {...props}

@@ -14,15 +14,24 @@ import {
 const navItems = [
   {
     label: 'Ice Cream Buckets',
-    img: '/images/icecream/chocolate_icecream_bucket.png',
+    img: '/images/icecream/chocolate_icecream.png',
+    bgColor: '#FBE8C4', // 🍦 soft beige
   },
   {
     label: 'Fresh Sips',
-    img: '/images/freshsip/mojito_classic_fresh_sip.png',
+    img: '/images/freshsip/mojito_freshsip.png',
+    bgColor: '#4CAF50', // 🥤 minty green
   },
-
-  { label: 'Shakes', img: '/images/shakes/blue_berry_shake.png' },
-  { label: 'All Products', img: '/images/all-products.jpg' },
+  {
+    label: 'Shakes',
+    img: '/images/shakes/strawberry_shake.png',
+    bgColor: '#FFA1AA', // 🫐 blueberry hint
+  },
+  {
+    label: 'All Products',
+    img: '/images/all-products.jpg',
+    bgColor: '#FEE2E2', // 🍓 pink tone
+  },
 ];
 
 export function NavDropdown() {
@@ -123,13 +132,16 @@ export function NavDropdown() {
                   <Button
                     key={index}
                     variant="ghost"
-                    className="hover:bg-[#d2c1a8]/20 font-corben rounded-xl h-20 w-full justify-start font-bold text-2xl text-secondary my-3  gap-9"
+                    className="hover:bg-[#d2c1a8]/20 font-black uppercase font-baloo rounded-xl h-20 w-full justify-start text-3xl text-secondary my-3 gap-9"
                   >
-                    <div className="">
+                    <div
+                      className="flex items-center justify-center w-16 h-16 rounded-lg"
+                      style={{ backgroundColor: item.bgColor }}
+                    >
                       <img
                         src={item.img}
                         alt={item.label}
-                        className="w-14 h-14 rounded-lg object-cover"
+                        className="w-12 h-12 object-contain"
                       />
                     </div>
                     {item.label}

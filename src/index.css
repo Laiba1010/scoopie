@@ -13,6 +13,7 @@
   font-weight: 700;
   font-style: normal;
 }
+/* ✅ IBM Plex Sans Font Variants */
 
 html,
 body {
@@ -120,3 +121,11 @@ body {
 /* body[style*='pointer-events: none'] {
   pointer-events: auto !important;
 } */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}

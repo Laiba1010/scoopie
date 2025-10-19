@@ -19,7 +19,7 @@ export function Navbar() {
   ];
 
   return (
-    <header className="bg-slate-400 w-full p-4 font-ibm sticky top-0 z-50 bg-transparent flex justify-center items-center">
+    <header className=" w-full p-4 font-ibm fixed top-0 z-50 bg-transparent flex justify-center items-center">
       <div className=" grid grid-cols-3 max-w-[110rem] mx-auto w-full bg-secondary  px-4 py-3 text-primary 2xl:h-[5.8rem] h-20 rounded-[24px] relative">
         {/* LEFT SECTION */}
         <NavigationMenu>
@@ -37,7 +37,11 @@ export function Navbar() {
           to="/"
           className=" max-h-[4.2rem] overflow-hidden flex items-center justify-center"
         >
-          <img src="/logo.png" alt="Logo" className="object-cover w-56" />
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className="object-cover w-48 rotate-2"
+          />
         </Link>
 
         {/* RIGHT SECTION */}

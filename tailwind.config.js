@@ -6,9 +6,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        corben: ['Corben', 'serif'],
-        ibm: ['IBM Plex Sans"', 'sans-serif'],
+        baloo: ['"Baloo 2"', 'cursive'],
+        ibm: ['"IBM Plex Sans"', 'sans-serif'],
       },
+
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
