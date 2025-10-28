@@ -148,6 +148,7 @@ export const BrandJourney = () => {
                     >
                       {/* Image */}
                       <motion.img
+                        loading="lazy"
                         variants={itemVariants}
                         src={item.img}
                         alt="brand journey"
@@ -255,6 +256,7 @@ export const BrandJourney = () => {
                     >
                       {/* Image */}
                       <motion.img
+                        loading="lazy"
                         variants={itemVariants}
                         src={item.img}
                         alt={item.title}
