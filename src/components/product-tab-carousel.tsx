@@ -216,6 +216,7 @@ export default function ProductTabsCarousel() {
                                   <motion.img
                                     key={index}
                                     src="/images/flower.svg" // path to your SVG in public folder
+                                    loading="lazy"
                                     alt="background shape"
                                     className="absolute w-[360px] h-[360px] -z-10"
                                     initial={{ scale: 0.1, rotate: 0 }}
@@ -242,6 +243,7 @@ export default function ProductTabsCarousel() {
                                 <motion.img
                                   src={item.image}
                                   alt={item.name}
+                                  loading="lazy"
                                   className="object-contain h-[68%] w-[68%] relative z-20"
                                   animate={
                                     isCenter

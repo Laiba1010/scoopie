@@ -16,6 +16,7 @@ export const Features = () => {
         </div>
         <div className="col-start-1 row-start-2 col-span-3 row-span-3 md:col-start-1 md:row-start-2 md:col-span-1 md:row-span-2 bg-gray-300 rounded-[20px] ">
           <img
+            loading="lazy"
             src="/images/holding_product.png"
             alt="holding product"
             className="w-full h-full object-cover  rounded-[20px]"
@@ -30,6 +31,7 @@ export const Features = () => {
         </div>
         <div className="col-start-1 row-start-6 col-span-3 md:col-start-2 md:row-start-2 md:col-span-1 md:row-span-1 bg-gray-300 rounded-[20px] ">
           <img
+            loading="lazy"
             src="/images/floating_products.png"
             alt=" floating products"
             className="w-full h-full object-cover  rounded-[20px]"
@@ -44,6 +46,7 @@ export const Features = () => {
         </div>
         <div className="hidden md:block col-start-1 row-start-8 col-span-3 md:col-start-3 md:row-start-1 md:col-span-1 md:row-span-2 rounded-[20px]">
           <img
+            loading="lazy"
             src="/images/shakeinhand.png"
             alt=" shake in hand"
             className="w-full h-full object-cover  rounded-[20px]"
@@ -51,6 +54,7 @@ export const Features = () => {
         </div>
         <div className="hidden md:block md:col-start-3 md:row-start-3 md:col-span-1 md:row-span-1 bg-gray-300 rounded-[20px] ">
           <img
+            loading="lazy"
             src="/images/all_products.png"
             alt="all products"
             className="w-full h-full object-cover  rounded-[20px]"
