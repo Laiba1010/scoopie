@@ -43,6 +43,23 @@ const IMAGES = [
 export default function SwipeCarousel() {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
+  function useMediaQuery(query: string) {
+    const [matches, setMatches] = React.useState(false);
+
+    React.useEffect(() => {
+      const media = window.matchMedia(query);
+      if (media.matches !== matches) {
+        setMatches(media.matches);
+      }
+      const listener = () => setMatches(media.matches);
+      media.addEventListener('change', listener);
+      return () => media.removeEventListener('change', listener);
+    }, [matches, query]);
+
+    return matches;
+  }
+  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isTablet = useMediaQuery('(max-width: 1024px)');
 
   React.useEffect(() => {
     if (!api) return;
@@ -63,7 +80,7 @@ export default function SwipeCarousel() {
     return () => clearInterval(interval);
   }, [api]);
   return (
-    <div className="relative  overflow-hidden mx-auto w-full h-[80rem] 2xl:h-[80rem] flex flex-col justify-between items-center">
+    <div className="relative  overflow-hidden mx-auto w-full h-[50rem] md:h-[55rem] lg:h-[80rem] 2xl:h-[80rem] flex flex-col justify-between items-center">
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           key={current} // 👈 triggers re-render when slide changes
@@ -71,13 +88,12 @@ export default function SwipeCarousel() {
           animate={{ scale: 1.05, opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: 'easeInOut' }}
-          className="absolute inset-0 flex items-center justify-center"
+          className="absolute inset-0 flex items-center justify-center lg:bg-[length:50rem] md:bg-[length:30rem] bg-[length:22rem]"
           style={{
             backgroundColor: BG_COLORS[current],
             backgroundImage: `url(${BG_SVGS[current]})`,
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
-            backgroundSize: '50rem',
           }}
         />
       </div>
@@ -92,18 +108,18 @@ export default function SwipeCarousel() {
           {Array.from({ length: 3 }).map((_, index) => (
             <CarouselItem
               key={index}
-              className="basis-[70%] flex items-center justify-center pt-40"
+              className="basis-[70%]  flex items-center justify-center md:pt-40 pt-28"
             >
               <Card
                 className={cn(
-                  'border-0 outline-none ring-0 shadow-none bg-transparent text-primary-foreground transition-all duration-500 w-[70%]  2xl:w-[45rem]',
+                  'border-0  outline-none ring-0 shadow-none bg-transparent text-primary-foreground transition-all duration-500 lg:w-[70%] md:w-[80%] w-[80%] 2xl:w-[45rem]',
                   {
                     'opacity-0 pointer-events-none': index !== current, // completely hides others
                     'opacity-100': index === current,
                   },
                 )}
               >
-                <CardContent className=" border-none flex flex-col   p-0 items-center justify-center ">
+                <CardContent className="  border-none flex flex-col  p-0 items-center justify-center ">
                   <motion.h1
                     key={HEADINGS[current]} // 👈 key by heading text
                     initial={{ opacity: 0, y: 40 }}
@@ -114,7 +130,7 @@ export default function SwipeCarousel() {
                       duration: 0.8,
                       ease: 'easeOut',
                     }}
-                    className="z-48 text-9xl tracking-tighter text-center font-black uppercase font-baloo"
+                    className="z-48 lg:text-9xl md:text-8xl text-6xl text-center font-normal uppercase font-baloo"
                   >
                     {HEADINGS[current]}
                   </motion.h1>
@@ -125,7 +141,12 @@ export default function SwipeCarousel() {
                     <motion.div
                       key={`left-${current}`}
                       initial={{ opacity: 0, x: -50, y: 0, scale: 0.3 }}
-                      animate={{ opacity: 1, x: -280, y: -20, scale: 1 }}
+                      animate={{
+                        opacity: 1,
+                        x: isMobile ? -120 : isTablet ? -200 : -280,
+                        y: isMobile ? -10 : isTablet ? 40 : -30,
+                        scale: 1,
+                      }}
                       transition={{
                         duration: 1,
                         ease: 'easeOut',
@@ -141,7 +162,12 @@ export default function SwipeCarousel() {
                     <motion.div
                       key={`bottom-${current}`}
                       initial={{ opacity: 0, x: -30, y: 40, scale: 0.3 }}
-                      animate={{ opacity: 1, x: -200, y: 250, scale: 1 }}
+                      animate={{
+                        opacity: 1,
+                        x: isMobile ? -120 : isTablet ? -120 : -200,
+                        y: isMobile ? 150 : isTablet ? 180 : 250,
+                        scale: 1,
+                      }}
                       transition={{
                         duration: 1,
                         ease: 'easeOut',
@@ -157,7 +183,12 @@ export default function SwipeCarousel() {
                     <motion.div
                       key={`right-${current}`}
                       initial={{ opacity: 0, x: 50, y: 0, scale: 0.3 }}
-                      animate={{ opacity: 1, x: 280, y: 60, scale: 1 }}
+                      animate={{
+                        opacity: 1,
+                        x: isMobile ? 140 : isTablet ? 200 : 280,
+                        y: isMobile ? 60 : isTablet ? 50 : 60,
+                        scale: 1,
+                      }}
                       transition={{
                         duration: 1,
                         ease: 'easeOut',
@@ -178,13 +209,13 @@ export default function SwipeCarousel() {
                       repeat: Infinity,
                       ease: 'easeInOut',
                     }}
-                    className="px-24 relative z-10"
+                    className="md:px-24 relative z-10"
                   >
                     <motion.img
                       key={index}
                       src={IMAGES[index]}
                       alt={`Ice Cream ${index + 1}`}
-                      className="h-full object-cover"
+                      className="h-full object-cover lg:pt-0 md:pt-10 pt-8 "
                     />
                   </motion.div>
                 </CardContent>

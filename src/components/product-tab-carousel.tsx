@@ -13,6 +13,8 @@ import {
 } from '@/components/ui/carousel';
 import { motion, AnimatePresence } from 'framer-motion'; // 🪄 animation library
 import { BadgeCheck } from 'lucide-react';
+import { MobileProductSelect } from './mobile-product-select';
+import { cn } from '@/lib/utils';
 
 const PRODUCTS = {
   popular: [
@@ -36,86 +38,94 @@ const PRODUCTS = {
       tags: ['Summer Favorite'],
       image: '/images/freshsip/mojito_freshsip.png',
     },
-
     {
-      name: 'Berry Bliss',
-      tags: ['New Arrival'],
+      name: 'Pistachio Dream',
+      tags: ['Rich Flavor'],
       image: '/images/icecream/pistachio_icecream.png',
     },
-    {
-      name: 'Berry Bliss',
-      tags: ['New Arrival'],
-      image: '/images/icecream/Mango_icecream_bucket.png',
-    },
   ],
+
   shakes: [
     {
-      name: 'Chocolate Shake',
+      name: 'Blueberry Burst',
       tags: ['Best Seller'],
-      image: '/images/icecream/Mango_icecream_bucket.png',
+      image: '/images/shakes/blueberry_shake.png',
     },
     {
-      name: 'Vanilla Delight',
-      tags: ['Classic'],
+      name: 'Oreo Crush',
+      tags: ['Crunchy Treat'],
       image: '/images/shakes/oreo_shake.png',
     },
     {
-      name: 'Oreo Shake',
-      tags: ['Crunchy'],
-      image:
-        'https://images.unsplash.com/photo-1606787366850-de6330128bfc?q=80&w=1000',
+      name: 'Pineapple Paradise',
+      tags: ['Tropical Taste'],
+      image: '/images/shakes/pineapple_shake.png',
     },
     {
-      name: 'Peanut Butter Shake',
-      tags: ['Protein Boost'],
-      image:
-        'https://images.unsplash.com/photo-1601042879364-f38d1f6b2383?q=80&w=1000',
+      name: 'Strawberry Swirl',
+      tags: ['Refreshing'],
+      image: '/images/shakes/strawberry_shake.png',
     },
     {
-      name: 'Coffee Shake',
-      tags: ['Wake Up'],
-      image:
-        'https://images.unsplash.com/photo-1521305916504-4a1121188589?q=80&w=1000',
+      name: 'Mocha Madness',
+      tags: ['Wake Up Boost'],
+      image: '/images/shakes/strawberry_shake.png',
     },
   ],
+
   icecreams: [
     {
-      name: 'Strawberry Ice Cream',
+      name: 'Vanilla Velvet',
       tags: ['Gluten Free'],
-      image:
-        'https://images.unsplash.com/photo-1565958011705-44e211f5e7e8?q=80&w=1000',
+      image: '/images/icecream/vanilla_icecream.png',
     },
     {
-      name: 'Mint Chocolate',
-      tags: ['Refreshing'],
-      image:
-        'https://images.unsplash.com/photo-1589710752564-4b9b42a8e6cf?q=80&w=1000',
+      name: 'Strawberry Scoop',
+      tags: ['Classic'],
+      image: '/images/icecream/strawberry_icecream.png',
     },
     {
-      name: 'Caramel Swirl',
-      tags: ['Sweet Tooth'],
-      image:
-        'https://images.unsplash.com/photo-1560807707-8cc77767d783?q=80&w=1000',
+      name: 'Chocolate Fudge',
+      tags: ['Rich Flavor'],
+      image: '/images/icecream/chocolate_icecream.png',
+    },
+    {
+      name: 'Pistachio Bliss',
+      tags: ['Premium'],
+      image: '/images/icecream/pistachio_icecream.png',
+    },
+    {
+      name: 'Mango Delight',
+      tags: ['Best Seller', 'Protein Boost'],
+      image: '/images/icecream/Mango_icecream_bucket.png',
     },
   ],
+
   freshsip: [
     {
-      name: 'Lemon Fizz',
+      name: 'Electric Blue',
       tags: ['Low Sugar'],
-      image:
-        'https://images.unsplash.com/photo-1612197512447-1d4c5a34f9e1?q=80&w=1000',
+      image: '/images/freshsip/electricblue_freshsip.png',
     },
     {
-      name: 'Orange Zest',
-      tags: ['Vitamin C'],
-      image:
-        'https://images.unsplash.com/photo-1612197522481-cbdfce463b43?q=80&w=1000',
+      name: 'Mojito Twist',
+      tags: ['Cooling'],
+      image: '/images/freshsip/mojito_freshsip.png',
     },
     {
       name: 'Watermelon Cooler',
       tags: ['Refreshing'],
-      image:
-        'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1000',
+      image: '/images/freshsip/watermelon_freshsip.png',
+    },
+    {
+      name: 'Mojito Twist',
+      tags: ['Cooling'],
+      image: '/images/freshsip/mojito_freshsip.png',
+    },
+    {
+      name: 'Watermelon Cooler',
+      tags: ['Refreshing'],
+      image: '/images/freshsip/watermelon_freshsip.png',
     },
   ],
 };
@@ -144,13 +154,13 @@ export default function ProductTabsCarousel() {
   // 🟡 Reset centerIndex when tab changes to correct middle
 
   return (
-    <div className="w-full p-10 ">
+    <div className="w-full lg:p-10 p-6 ">
       <Tabs
         value={tab}
         onValueChange={(value) => setTab(value as keyof typeof PRODUCTS)}
-        className="w-full bg-[#f6efe2] rounded-[20px] py-16 "
+        className="w-full  bg-[#f6efe2] rounded-[20px] py-12 "
       >
-        <TabsList className="font-ibm flex justify-center mb-12 bg-transparent space-x-4 py-6">
+        <TabsList className="hidden md:flex font-ibm justify-center mb-12 bg-transparent space-x-4 py-6">
           {['popular', 'shakes', 'icecreams', 'freshsip'].map((key) => (
             <TabsTrigger
               key={key}
@@ -171,7 +181,7 @@ export default function ProductTabsCarousel() {
             </TabsTrigger>
           ))}
         </TabsList>
-
+        <MobileProductSelect />
         {/* Smooth transition for tab content */}
         <AnimatePresence mode="wait">
           {Object.entries(PRODUCTS).map(([key, list]) =>
@@ -196,12 +206,12 @@ export default function ProductTabsCarousel() {
                         return (
                           <CarouselItem
                             key={index}
-                            className="flex items-center justify-center basis-[30%] cursor-pointer"
+                            className="flex items-center justify-center md:basis-[30%] basis-[60%] cursor-pointer"
                           >
                             <div className=" w-full relative ">
                               {/* 🍦 Image */}
                               {/* 🍦 Image + Rotating Background */}
-                              <div className=" relative flex items-center justify-center w-full h-[400px] overflow-visible rounded-xl z-10">
+                              <div className=" relative flex items-center justify-center w-full md:h-[400px] h-[250px] overflow-visible rounded-xl z-10">
                                 {isCenter && (
                                   <motion.img
                                     key={index}
@@ -213,7 +223,7 @@ export default function ProductTabsCarousel() {
                                     transition={{
                                       scale: { duration: 0.3, ease: 'easeOut' },
                                       rotate: {
-                                        duration: 0.4,
+                                        duration: 0.55,
                                         ease: 'easeOut',
                                       },
                                     }}
@@ -248,7 +258,7 @@ export default function ProductTabsCarousel() {
                               {/* Text */}
                               {/* Text Section */}
                               <div className="mt-3 text-center text-secondary relative z-20">
-                                <h3 className="tracking-tighter  text-4xl font-black uppercase font-baloo min-h-[3rem] flex items-start justify-center">
+                                <h3 className=" text-4xl  uppercase font-baloo min-h-[3rem] flex items-start justify-center">
                                   {item.name}
                                 </h3>
 
@@ -276,9 +286,9 @@ export default function ProductTabsCarousel() {
                       })}
                     </CarouselContent>
 
-                    <div className="max-w-xs mx-auto py-4 flex justify-center items-center bg-secondary rounded-[12px] gap-5 mt-10">
+                    <div className="max-w-xs mx-auto py-4 flex justify-center items-center md:bg-secondary rounded-[12px] gap-5 mt-10">
                       {/* ◀️ Left Arrow */}
-                      <CarouselPrevious className="rounded-sm static translate-x-0 translate-y-0 h-6 w-6" />
+                      <CarouselPrevious className="rounded-sm bg-secondary md:bg-primary md:text-secondary text-primary static h-10 w-10  translate-x-0 translate-y-0 md:h-6 md:w-6" />
 
                       {/* 🔵 Dots */}
                       <div className="flex justify-center items-center ">
@@ -294,14 +304,16 @@ export default function ProductTabsCarousel() {
                             >
                               <motion.div
                                 layout
-                                className="rounded-full"
+                                className={cn(
+                                  'rounded-full',
+                                  isActive
+                                    ? 'bg-[#fff6ee] sm:bg-[#fff6ee] bg-black'
+                                    : 'bg-[#B0B0B0]',
+                                )}
                                 animate={{
-                                  width: isActive ? 20 : 8, // active = pill
+                                  width: isActive ? 20 : 8,
                                   height: 8,
                                   borderRadius: 999,
-                                  backgroundColor: isActive
-                                    ? '#fff6ee'
-                                    : '#B0B0B0',
                                 }}
                                 transition={{ duration: 0.3, ease: 'easeOut' }}
                               />
@@ -311,7 +323,7 @@ export default function ProductTabsCarousel() {
                       </div>
 
                       {/* ▶️ Right Arrow */}
-                      <CarouselNext className="rounded-sm static translate-x-0 translate-y-0 h-6 w-6" />
+                      <CarouselNext className=" rounded-sm bg-secondary md:bg-primary md:text-secondary text-primary static h-10 w-10  translate-x-0 translate-y-0 md:h-6 md:w-6" />
                     </div>
                   </Carousel>
                 </motion.div>

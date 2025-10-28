@@ -13,15 +13,15 @@
   font-weight: 700;
   font-style: normal;
 }
-/* ✅ IBM Plex Sans Font Variants */
 
 html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   background-color: #fff6ee;
+  /* overflow-x: hidden; */
 }
 
 .header {

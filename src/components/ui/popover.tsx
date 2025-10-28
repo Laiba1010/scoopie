@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PopoverPrimitive from '@radix-ui/react-popover';
 
 import { cn } from '@/lib/utils';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, cubicBezier, motion } from 'framer-motion';
 
 const Popover = PopoverPrimitive.Root;
 
@@ -48,7 +48,7 @@ const PopoverContent = React.forwardRef<
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.35, ease: 'easeInOut' }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
                 className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
               />
 
@@ -57,28 +57,28 @@ const PopoverContent = React.forwardRef<
                 align={align}
                 sideOffset={sideOffset}
                 className={cn(
-                  'z-50  0 mx-auto max-w-[calc(100vw-45px)] 2xl:w-[110rem] focus:outline-none outline-none',
+                  'z-50  0 mx-auto max-w-[calc(100vw-30px)] lg:max-w-[calc(100vw-45px)] 2xl:w-[110rem] focus:outline-none outline-none',
                   className,
                 )}
                 {...props}
               >
                 <motion.div
-                  initial={{ opacity: 0, height: 40 }}
+                  initial={{ opacity: 0, height: 100 }}
                   animate={{
                     opacity: 1,
                     height: isOpen ? measuredHeight : 0,
                   }}
                   exit={{
                     opacity: 0,
-                    height: 40,
+                    height: 100,
                     transition: {
-                      duration: 0.45,
-                      ease: [0.215, 0.61, 0.355, 1],
+                      duration: 0.6,
+                      ease: cubicBezier(0.33, 0, 0, 1),
                     },
                   }}
                   transition={{
-                    duration: 0.6,
-                    ease: [0.215, 0.61, 0.355, 1],
+                    duration: 0.8,
+                    ease: cubicBezier(0.2, 1, 0.2, 1),
                   }}
                   style={{
                     overflow: 'hidden',

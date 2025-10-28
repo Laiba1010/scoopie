@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
-import { AnimatePresence, easeOut, motion } from 'framer-motion';
+import { AnimatePresence, cubicBezier, motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import {
   Popover,
@@ -29,7 +29,7 @@ const navItems = [
   },
   {
     label: 'All Products',
-    img: '/images/all-products.jpg',
+    img: '/images/all_products.png',
     bgColor: '#FEE2E2', // 🍓 pink tone
   },
 ];
@@ -52,119 +52,129 @@ export function NavDropdown() {
     };
   }
   const containerVariants = {
-    hidden: { opacity: 0 }, // 🔥 Start fully transparent
     visible: {
-      opacity: 1, // ✅ Fade in before children animate
       transition: {
-        duration: 0.2,
-        ease: easeOut,
-        when: 'beforeChildren', // 🔥 ensures fade finishes before child animations start
-        staggerChildren: 0.05,
+        staggerChildren: 0.1, // delay between children
+        delayChildren: 0.2, // small start delay
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 35 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.35, ease: easeOut },
+      transition: {
+        duration: 0.6,
+        ease: cubicBezier(0.33, 1, 0.68, 1), // same as power3.out
+      },
     },
   };
 
   return (
-    <Popover open={isOpen} onOpenChange={setIsOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="ghost"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          className="relative hover:bg-transparent hover:text-primary cursor-pointer px-0 flex items-center gap-2 font-semibold text-lg"
-        >
-          <span className="relative text-sm">
-            Products
-            {/* 🔥 Animated underline */}
-            <AnimatePresence mode="wait">
-              {(isHovered || isOpen) && (
-                <motion.div
-                  layoutId="underline"
-                  initial={{ width: 0, opacity: 0 }}
-                  animate={{ width: '100%', opacity: 1 }}
-                  exit={{ width: 0, opacity: 0 }}
-                  transition={{ duration: 0.25, ease: 'easeInOut' }}
-                  className="absolute -bottom-1 left-0 h-[2px] bg-primary rounded-full"
-                />
-              )}
-            </AnimatePresence>
-          </span>
-
-          {/* 🔁 Rotating Chevron */}
-          <motion.div
-            animate={{ rotate: isOpen ? 180 : 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
+    <>
+      {' '}
+      <Popover open={isOpen} onOpenChange={setIsOpen}>
+        <PopoverTrigger asChild>
+          <Button
+            variant="ghost"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className="relative hover:bg-transparent hover:text-primary cursor-pointer px-0 flex items-center gap-2 font-bold text-lg"
           >
-            <ChevronDown className="w-5 h-5" />
-          </motion.div>
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent
-        isOpen={isOpen}
-        sideOffset={useResponsiveOffset().sideOffset}
-        align="start"
-        alignOffset={-40}
-      >
-        <AnimatePresence>
-          {isOpen && (
+            <span className="relative text-sm">
+              Products
+              {/* 🔥 Animated underline */}
+              <AnimatePresence mode="wait">
+                {(isHovered || isOpen) && (
+                  <motion.div
+                    layoutId="underline"
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={{ width: '100%', opacity: 1 }}
+                    exit={{ width: 0, opacity: 0 }}
+                    transition={{ duration: 0.25, ease: 'easeInOut' }}
+                    className="absolute -bottom-1 left-0 h-[2px] bg-primary rounded-full"
+                  />
+                )}
+              </AnimatePresence>
+            </span>
+
+            {/* 🔁 Rotating Chevron */}
             <motion.div
-              key="drawer-content"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="2xl:h-[45rem] grid  grid-cols-[2fr_1fr_1fr] gap-6 py-6 px-8  "
+              animate={{ rotate: isOpen ? 180 : 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
             >
-              <motion.div variants={itemVariants}>
-                <h3 className="font-semibold text-lg mb-3">
-                  Product Categories
-                </h3>
-
-                {navItems.map((item, index) => (
-                  <Button
-                    key={index}
-                    variant="ghost"
-                    className="hover:bg-[#d2c1a8]/20 font-black uppercase font-baloo rounded-xl h-20 w-full justify-start text-3xl text-secondary my-3 gap-9"
-                  >
-                    <div
-                      className="flex items-center justify-center w-16 h-16 rounded-lg"
-                      style={{ backgroundColor: item.bgColor }}
-                    >
-                      <img
-                        src={item.img}
-                        alt={item.label}
-                        className="w-12 h-12 object-contain"
-                      />
-                    </div>
-                    {item.label}
-                  </Button>
-                ))}
-              </motion.div>
-
-              <motion.div
-                variants={itemVariants}
-                className="bg-purple-400 rounded-[20px]"
-              >
-                Bye
-              </motion.div>
-              <motion.div
-                variants={itemVariants}
-                className="bg-purple-400  rounded-[20px]"
-              >
-                Hello
-              </motion.div>
+              <ChevronDown className="w-5 h-5" />
             </motion.div>
-          )}
-        </AnimatePresence>
-      </PopoverContent>
-    </Popover>
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent
+          isOpen={isOpen}
+          sideOffset={useResponsiveOffset().sideOffset}
+          align="start"
+          alignOffset={-40}
+        >
+          <AnimatePresence>
+            {isOpen && (
+              <>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeInOut' }}
+                  className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
+                />
+                <motion.div
+                  key="drawer-content"
+                  variants={containerVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className="2xl:h-[45rem] grid  grid-cols-[2fr_1fr_1fr] gap-6 py-6 px-8  "
+                >
+                  <motion.div variants={itemVariants}>
+                    <h3 className="font-semibold text-lg mb-3">
+                      Product Categories
+                    </h3>
+
+                    {navItems.map((item, index) => (
+                      <Button
+                        key={index}
+                        variant="ghost"
+                        className="hover:bg-[#d2c1a8]/20  uppercase font-baloo rounded-xl h-20 w-full justify-start text-3xl text-secondary my-3 gap-9"
+                      >
+                        <div
+                          className="flex items-center justify-center w-16 h-16 rounded-lg"
+                          style={{ backgroundColor: item.bgColor }}
+                        >
+                          <img
+                            src={item.img}
+                            alt={item.label}
+                            className="w-12 h-12 object-contain"
+                          />
+                        </div>
+                        {item.label}
+                      </Button>
+                    ))}
+                  </motion.div>
+
+                  <motion.img
+                    src="/images/electricblue_inair.png"
+                    variants={itemVariants}
+                    className="h-full object-cover rounded-[20px]"
+                  />
+                  <motion.img
+                    src="/images/vanilla_inair.png"
+                    variants={itemVariants}
+                    className="h-full object-cover rounded-[20px]"
+                  />
+                </motion.div>
+              </>
+            )}
+          </AnimatePresence>
+        </PopoverContent>
+      </Popover>
+      {/* <MobileMenu /> */}
+    </>
   );
 }

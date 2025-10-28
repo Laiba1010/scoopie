@@ -6,10 +6,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        baloo: ['"Baloo 2"', 'cursive'],
-        ibm: ['"IBM Plex Sans"', 'sans-serif'],
+        baloo: ['Changa One', 'cursive'],
+        ibm: ['IBM Plex Sans"', 'sans-serif'],
       },
-
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',

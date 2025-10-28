@@ -23,7 +23,7 @@ export function NavItem({ label, href }: NavItemProps) {
           to={href}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="relative text-sm font-semibold hover:text-primary transition-colors"
+          className="relative text-sm font-bold hover:text-primary transition-colors"
         >
           {label}
 
