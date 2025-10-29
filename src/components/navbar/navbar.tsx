@@ -242,12 +242,12 @@ export function Navbar() {
                         </motion.div>
 
                         <motion.img
-                          src="/images/electricblue_inair.png"
+                          src="/images/electricblue_inair.webp"
                           variants={itemVariants}
                           className="h-full object-cover rounded-[20px]"
                         />
                         <motion.img
-                          src="/images/vanilla_inair.png"
+                          src="/images/vanilla_inair.webp"
                           variants={itemVariants}
                           className="h-full object-cover rounded-[20px]"
                         />
