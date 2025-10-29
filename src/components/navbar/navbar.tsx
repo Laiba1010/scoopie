@@ -30,12 +30,12 @@ export function Navbar() {
     },
     {
       label: 'Fresh Sips',
-      img: '/images/freshsip/mojito_freshsip.png',
+      img: '/images/freshsip/mojito_freshsip.webp',
       bgColor: '#4CAF50', // 🥤 minty green
     },
     {
       label: 'Shakes',
-      img: '/images/shakes/strawberry_shake.png',
+      img: '/images/shakes/strawberry_shake.webp',
       bgColor: '#FFA1AA', // 🫐 blueberry hint
     },
     {

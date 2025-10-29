@@ -26,17 +26,17 @@ const PRODUCTS = {
     {
       name: 'Vanilla Delight',
       tags: ['Best Seller', 'Protein Boost'],
-      image: '/images/icecream/Mango_icecream_bucket.png',
+      image: '/images/icecream/Mango_icecream_bucket.webp',
     },
     {
       name: 'Berry Bliss',
       tags: ['New Arrival'],
-      image: '/images/shakes/strawberry_shake.png',
+      image: '/images/shakes/strawberry_shake.webp',
     },
     {
       name: 'Mango Magic',
       tags: ['Summer Favorite'],
-      image: '/images/freshsip/mojito_freshsip.png',
+      image: '/images/freshsip/mojito_freshsip.webp',
     },
     {
       name: 'Pistachio Dream',
@@ -64,12 +64,12 @@ const PRODUCTS = {
     {
       name: 'Strawberry Swirl',
       tags: ['Refreshing'],
-      image: '/images/shakes/strawberry_shake.png',
+      image: '/images/shakes/strawberry_shake.webp',
     },
     {
       name: 'Mocha Madness',
       tags: ['Wake Up Boost'],
-      image: '/images/shakes/strawberry_shake.png',
+      image: '/images/shakes/strawberry_shake.webp',
     },
   ],
 
@@ -82,7 +82,7 @@ const PRODUCTS = {
     {
       name: 'Strawberry Scoop',
       tags: ['Classic'],
-      image: '/images/icecream/strawberry_icecream.png',
+      image: '/images/icecream/strawberry_icecream.webp',
     },
     {
       name: 'Chocolate Fudge',
@@ -97,7 +97,7 @@ const PRODUCTS = {
     {
       name: 'Mango Delight',
       tags: ['Best Seller', 'Protein Boost'],
-      image: '/images/icecream/Mango_icecream_bucket.png',
+      image: '/images/icecream/Mango_icecream_bucket.webp',
     },
   ],
 
@@ -110,7 +110,7 @@ const PRODUCTS = {
     {
       name: 'Mojito Twist',
       tags: ['Cooling'],
-      image: '/images/freshsip/mojito_freshsip.png',
+      image: '/images/freshsip/mojito_freshsip.webp',
     },
     {
       name: 'Watermelon Cooler',
@@ -120,7 +120,7 @@ const PRODUCTS = {
     {
       name: 'Mojito Twist',
       tags: ['Cooling'],
-      image: '/images/freshsip/mojito_freshsip.png',
+      image: '/images/freshsip/mojito_freshsip.webp',
     },
     {
       name: 'Watermelon Cooler',

@@ -35,9 +35,9 @@ const BG_SVGS = [
 ];
 
 const IMAGES = [
-  '/images/icecream/Mango_icecream_bucket.png',
-  '/images/freshsip/mojito_freshsip.png',
-  '/images/shakes/strawberry_shake.png',
+  '/images/icecream/Mango_icecream_bucket.webp',
+  '/images/freshsip/mojito_freshsip.webp',
+  '/images/shakes/strawberry_shake.webp',
 ];
 
 export default function SwipeCarousel() {
