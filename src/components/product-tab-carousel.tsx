@@ -158,7 +158,7 @@ export default function ProductTabsCarousel() {
       <Tabs
         value={tab}
         onValueChange={(value) => setTab(value as keyof typeof PRODUCTS)}
-        className="w-full  bg-[#f6efe2] rounded-[20px] py-12 "
+        className="w-full 2xl:max-w-[110rem] 2xl:mx-auto  bg-[#f6efe2] rounded-[20px] py-12 "
       >
         <TabsList className="hidden md:flex font-ibm justify-center mb-12 bg-transparent space-x-4 py-6">
           {['popular', 'shakes', 'icecreams', 'freshsip'].map((key) => (
@@ -193,8 +193,9 @@ export default function ProductTabsCarousel() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.98 }}
                   transition={{ duration: 0.4, ease: 'easeInOut' }}
-                  className="w-full max-w-7xl mx-auto"
+                  className="w-full "
                 >
+                  {/* max-w-7xl */}
                   <Carousel
                     opts={{ align: 'center', loop: true, duration: 50 }}
                     setApi={setApi}
@@ -206,7 +207,7 @@ export default function ProductTabsCarousel() {
                         return (
                           <CarouselItem
                             key={index}
-                            className="flex items-center justify-center md:basis-[30%] basis-[60%] cursor-pointer"
+                            className="flex items-center justify-center md:basis-[30%] basis-[60%] 2xl:basis-[25%] cursor-pointer"
                           >
                             <div className=" w-full relative ">
                               {/* 🍦 Image */}

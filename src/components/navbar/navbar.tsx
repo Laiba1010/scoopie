@@ -204,7 +204,7 @@ export function Navbar() {
               }}
               className="z-50 w-full md:border-[12px] border-4 border-black  max-w-[110rem] mx-auto  bg-primary rounded-[25px] 2xl:overflow-hidden overflow-y-auto mt-3"
             >
-              <div className=" hidden lg:h-[80vh] xl:h-[75vh]  2xl:h-full w-full mx-auto p-8 lg:flex flex-wrap gap-12 justify-center  ">
+              <div className=" hidden lg:h-[80vh] xl:h-[75vh]  2xl:h-[60vh] w-full mx-auto p-8 lg:flex flex-wrap gap-12 justify-center  ">
                 <AnimatePresence>
                   {open && (
                     <>

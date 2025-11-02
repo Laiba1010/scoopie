@@ -99,14 +99,14 @@ export const BrandJourney = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   return (
-    <div className="lg:h-[48rem] md:h-[58rem] h-[70rem] w-full flex flex-col items-center justify-center gap-12  mb-72 md:mb-[25rem]">
+    <div className="lg:h-[48rem] md:h-[58rem] h-[70rem] 2xl:h-[80vh] w-full flex flex-col items-center justify-center gap-12  mb-72 md:mb-[25rem]">
       <div className="text-black gap-4 text-center uppercase font-baloo flex flex-col items-center justify-center">
         <h3 className="text-3xl">What's New</h3>
         <h1 className=" text-6xl md:text-8xl  md:leading-[0.7]    max-w-[350px] md:max-w-2xl leading-[0.7] ">
           The World of Scoopie
         </h1>
       </div>
-      <div className="lg:flex hidden items-center justify-center gap-2 overflow-hidden w-full h-[28rem] ">
+      <div className="lg:flex hidden items-center justify-center gap-2 overflow-hidden w-full h-[28rem] 2xl:h-[50vh] ">
         {items.map((item) => (
           <div
             key={item.id}
@@ -133,7 +133,7 @@ export const BrandJourney = () => {
               style={{ width: active === item.id ? '66rem' : '0rem' }}
             >
               <div
-                className={`p-5 flex gap-7 text-gray-700 h-full text-sm leading-relaxed w-[66rem] rounded-[20px] ml-2 ${item.color}`}
+                className={`p-5 flex gap-7 text-gray-700 h-full text-sm leading-relaxed w-[66rem] 2xl:w-[90rem] rounded-[20px] ml-2 ${item.color}`}
               >
                 <AnimatePresence mode="wait">
                   {active === item.id && (
@@ -152,7 +152,7 @@ export const BrandJourney = () => {
                         variants={itemVariants}
                         src={item.img}
                         alt="brand journey"
-                        className="w-full max-w-lg h-full object-cover rounded-[20px]"
+                        className="w-full max-w-lg 2xl:max-w-3xl h-full object-cover rounded-[20px]"
                       />
 
                       {/* Text content */}
@@ -168,7 +168,7 @@ export const BrandJourney = () => {
                         </motion.h3>
                         <motion.h1
                           variants={itemVariants}
-                          className="font-baloo uppercase text-4xl leading-[0.8]"
+                          className="font-baloo uppercase text-4xl 2xl:text-7xl leading-[0.8] 2xl:leading-[0.8]"
                         >
                           {item.heading}
                         </motion.h1>

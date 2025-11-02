@@ -2,7 +2,7 @@
 
 export const Features = () => {
   return (
-    <div className="md:h-[90rem] h-[110rem] w-full flex items-center justify-center flex-col lg:px-10 px-6 gap-8 lg:py-64 md:py-24 py-40">
+    <div className="md:h-[90rem] h-[110rem] 2xl:max-w-[110rem] 2xl:mx-auto w-full flex items-center justify-center flex-col lg:px-10 px-6 gap-8 lg:py-64 md:py-24 py-40">
       <h1 className="md:text-8xl text-6xl text-black  md:leading-[0.7]   leading-[0.7]  font-baloo text-center max-w-4xl uppercase">
         Your smile knows so does the scoop
       </h1>
