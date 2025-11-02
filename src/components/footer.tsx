@@ -77,9 +77,9 @@ export const Footer = () => {
             {/* Column 4 — Contact */}
             <div className="text-center lg:text-left  col-start-1 row-start-3 col-span-2 lg:col-start-5 lg:row-start-1 lg:col-span-1 lg:row-span-3 flex flex-row flex-wrap justify-between items-start lg:flex-col lg:gap-4 md:pt-8 mb-24 md:mb-0">
               {/* Contact Us */}
-              <div className="w-[45%] lg:w-full text-xs md:text-base  md:space-y-2">
+              <div className="w-[45%] lg:w-full text-xs md:text-base  ">
                 <h4 className="font-baloo text-xl text-primary">Contact Us</h4>
-                <p className="font-semibold break-all">+1.234.567.9800</p>
+                <p className="font-semibold break-all mt-3">+1.234.567.9800</p>
                 <p className="font-semibold break-all">info@scoopiefoods.com</p>
                 <p className="font-semibold break-all">
                   sales@scoopoefoods.com
@@ -88,8 +88,10 @@ export const Footer = () => {
 
               {/* Head Office */}
               <div className="w-1/2 lg:w-full text-xs md:text-base  md:mt-3">
-                <h4 className="font-baloo text-xl text-primary">Head Office</h4>
-                <p className="font-semibold">190 Statesman Drive</p>
+                <h4 className="font-baloo text-xl text-primary ">
+                  Head Office
+                </h4>
+                <p className="font-semibold mt-3">190 Statesman Drive</p>
                 <p className="font-semibold">190 Statesman Drive</p>
                 <p className="font-semibold">Paris</p>
               </div>

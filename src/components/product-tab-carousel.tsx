@@ -82,7 +82,7 @@ const PRODUCTS = {
     {
       name: 'Strawberry Scoop',
       tags: ['Classic'],
-      image: '/images/icecream/strawberry_icecream.webp',
+      image: '/images/icecream/strawberry_icecream.png',
     },
     {
       name: 'Chocolate Fudge',
