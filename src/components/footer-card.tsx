@@ -11,7 +11,7 @@ import { AnimatedButton } from './animated-button';
 
 export const FooterCard = () => {
   return (
-    <Card className="border-none shadow-none outline-none focus-visible:ring-0 focus-visible:outline-none w-full max-w-6xl bg-[#C5B4E2] py-20 -mt-64">
+    <Card className="border-none shadow-none outline-none focus-visible:ring-0 focus-visible:outline-none w-full max-w-6xl 2xl:max-w-[105rem] bg-[#C5B4E2] py-20 -mt-64">
       <CardHeader className="flex gap-5 items-center justify-center text-center ">
         <CardTitle className="font-baloo font-normal  text-7xl md:text-9xl text-secondary uppercase max-w-2xl leading-[0.8]">
           Spice Up Your Inbox
